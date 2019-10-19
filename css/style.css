@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color: #fff;
+  font-size: 10px;
+}
+
+.main {
+  height: 150vh;
+  background-image: url("../image/image1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header"
+    "."
+    "footer";
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  grid-area: header;
+  border-bottom: 4px solid rgba(233, 70, 151, 0.7);
+  background-color: rgba(233, 70, 151, 0.5);
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  list-style: none;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.list-item {
+  flex-basis: 15%;
+  margin: 5px;
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  padding: 5px;
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(233, 70, 151, 0.5);
+}
+
+.footer {
+  position: relative;
+  grid-area: footer;
+  height: calc(50vh + 40px);
+  line-height: 40px;
+  text-align: center;
+  font-size: 1.6rem;
+  /* transform: skewY(1deg); */
+  background-color: rgba(233, 70, 151, 0.5);
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  border-bottom: 20px solid rgba(233, 70, 151, 0.5);
+  border-left: 0px solid transparent;
+  border-right: 100vw solid transparent;
+}
+
+.el-list {
+  position: absolute;
+  display: none;
+  top: 25px;
+  left: 30%;
+  font-size: 1.6em;
+  list-style: none;
+}
+
+.el-link {
+  display: block;
+  padding: 7px 17px;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #fff;
+  background-color: rgba(233, 70, 151, 0.5);
+  transition: .3s;
+}
+
+.el-link:hover {
+  background-color: rgba(233, 70, 151, 0.8);
+}
+
+.el-grid {
+  /* display: grid; */
+  grid-template-columns: 1fr 1fr;
+}
+
+.nav-link.active+.el-list {
+  display: block;
+}
+
+.nav-link.active+.el-list.el-grid {
+  display: grid;
+}
